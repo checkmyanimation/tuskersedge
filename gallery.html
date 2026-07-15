@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TuskersEdge | Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { jungle: '#064E3B', jungleLight: '#0F766E', sunset: '#F59E0B' },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .gallery-item {
+        cursor: zoom-in;
+        transition: transform 0.25s ease;
+      }
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+      #gallery-lightbox-image {
+        cursor: zoom-in;
+      }
+      #gallery-lightbox-image.is-zoomed {
+        cursor: zoom-out;
+        transform: scale(1.6);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 font-body text-slate-800">
+    <!-- Navbar (same as index) -->
+    <header class="fixed inset-x-0 top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-jungle text-white font-heading text-xl"
+          >&#128024;</div>
+          <div>
+            <div class="font-heading text-xl tracking-wide text-jungle">
+              TuskersEdge
+            </div>
+            <div class="text-xs text-slate-500">
+              Curated Sri Lanka journeys
+            </div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+          <a href="index.html" class="hover:text-jungleLight">Home</a>
+          <a href="tours.html" class="hover:text-jungleLight">Tours</a>
+          <a href="gallery.html" class="text-jungleLight">Gallery</a>
+          <a href="blog.html" class="hover:text-jungleLight">Blog</a>
+          <a href="about.html" class="hover:text-jungleLight">About</a>
+          <a href="feedback.html" class="hover:text-jungleLight">Feedback</a>
+          <a href="contact.html" class="hover:text-jungleLight">Contact</a>
+        </nav>
+
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 md:hidden"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-slate-100 bg-white px-4 pb-3 pt-2 text-sm md:hidden"
+      >
+        <a href="index.html" class="block py-1.5">Home</a>
+        <a href="tours.html" class="block py-1.5">Tours</a>
+        <a href="gallery.html" class="block py-1.5">Gallery</a>
+        <a href="blog.html" class="block py-1.5">Blog</a>
+        <a href="about.html" class="block py-1.5">About</a>
+        <a href="feedback.html" class="block py-1.5">Feedback</a>
+        <a href="contact.html" class="block py-1.5">Contact</a>
+      </nav>
+    </header>
+
+    <main class="pt-20 md:pt-24">
+      <section class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <div class="mb-6">
+          <p class="text-xs uppercase tracking-[0.25em] text-sunset">
+            TUSKERSEDGE GALLERY
+          </p>
+          <h1 class="mt-2 font-heading text-3xl text-jungle md:text-4xl">
+            Sri Lanka in frames
+          </h1>
+          <p class="mt-2 max-w-2xl text-sm text-slate-600 md:text-base">
+            A glimpse of hill country mists, warm southern seas, and everyday streets
+            that make this island unforgettable.
+          </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="mb-6 flex flex-wrap gap-2 text-xs">
+          <button
+            data-filter="all"
+            class="rounded-full border border-slate-200 px-3 py-1 bg-jungle text-white"
+          >
+            All
+          </button>
+          <button
+            data-filter="beaches"
+            class="rounded-full border border-slate-200 px-3 py-1 hover:bg-slate-100"
+          >
+            Beaches
+          </button>
+          <button
+            data-filter="culture"
+            class="rounded-full border border-slate-200 px-3 py-1 hover:bg-slate-100"
+          >
+            Culture
+          </button>
+          <button
+            data-filter="wildlife"
+            class="rounded-full border border-slate-200 px-3 py-1 hover:bg-slate-100"
+          >
+            Wildlife
+          </button>
+          <button
+            data-filter="hills"
+            class="rounded-full border border-slate-200 px-3 py-1 hover:bg-slate-100"
+          >
+            Hill Country
+          </button>
+          <button
+            data-filter="city"
+            class="rounded-full border border-slate-200 px-3 py-1 hover:bg-slate-100"
+          >
+            City
+          </button>
+        </div>
+
+        <!-- Grid -->
+        <div id="gallery-grid" class='grid gap-4 sm:grid-cols-2 md:grid-cols-3'>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/1.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 1</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/2.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 2</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/3.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 3</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/4.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 4</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/5.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 5</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/6.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 6</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/7.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 7</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/8.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 8</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/9.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 9</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/10.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 10</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/11.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 11</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/12.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 12</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/13.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 13</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/14.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 14</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/15.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 15</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/16.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 16</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/17.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 17</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/18.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 18</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/19.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 19</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/20.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 20</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/21.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 21</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/22.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 22</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/23.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 23</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/24.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 24</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/25.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 25</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/26.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 26</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/27.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 27</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/28.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 28</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/29.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 29</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/30.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 30</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/31.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 31</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/32.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 32</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/33.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 33</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/34.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 34</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='city'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/35.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 35</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                City Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='beaches'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/36.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 36</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Beaches Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='culture'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/37.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 37</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Culture Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='wildlife'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/38.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 38</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Wildlife Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+          <div
+            data-category='hills'
+            class='gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm'
+            style='background-image: url("images/39.jpeg")'
+          >
+            <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition'></div>
+            <div class='absolute inset-x-3 bottom-3 text-xs text-white opacity-0 group-hover:opacity-100 transition'>
+              <div class='font-semibold'>Gallery image 39</div>
+              <div class='text-[0.68rem] uppercase tracking-wide text-slate-200'>
+                Hills Â· Sri Lanka
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery lightbox -->
+        <div
+          id="gallery-lightbox"
+          class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Gallery viewer"
+        >
+          <button
+            id="gallery-lightbox-close"
+            class="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20"
+            aria-label="Close gallery"
+          >
+            Close
+          </button>
+
+          <button
+            id="gallery-lightbox-prev"
+            class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20"
+            aria-label="Previous image"
+          >
+            Prev
+          </button>
+
+          <div class="w-full max-w-5xl">
+            <img
+              id="gallery-lightbox-image"
+              class="h-[70vh] w-full rounded-2xl object-contain shadow-2xl transition-transform duration-300"
+              alt="Gallery image"
+            />
+          </div>
+
+          <button
+            id="gallery-lightbox-next"
+            class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20"
+            aria-label="Next image"
+          >
+            Next
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (same as index) -->
+    <footer class="border-t border-slate-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:justify-between">
+          <div>
+            <div class="font-heading text-lg text-jungle">TuskersEdge</div>
+            <p class="mt-1 text-xs text-slate-600 md:text-sm">
+              Sri Lanka-based travel designers crafting slow, soulful journeys
+              across the island.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-8 text-xs text-slate-600 md:text-sm">
+            <div>
+              <div class="font-semibold text-slate-800">Explore</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="tours.html" class="hover:text-jungleLight">Tours</a></li>
+                <li><a href="gallery.html" class="hover:text-jungleLight">Gallery</a></li>
+                <li><a href="blog.html" class="hover:text-jungleLight">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Company</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="about.html" class="hover:text-jungleLight">About</a></li>
+                <li><a href="faq.html" class="hover:text-jungleLight">FAQ</a></li>
+                <li><a href="feedback.html" class="hover:text-jungleLight">Feedback</a></li>
+                <li><a href="contact.html" class="hover:text-jungleLight">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Contact</div>
+              <ul class="mt-2 space-y-1">
+                <li>WhatsApp: <a href="https://wa.me/94729258104" target="_blank" rel="noopener" class="hover:text-jungleLight">+94729258104</a></li>
+                <li>Email: <a href="mailto:tuskersedgesafari@gmail.com" class="hover:text-jungleLight">tuskersedgesafari@gmail.com</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@nuwa_travels?_r=1&_t=ZS-94iDBHmU33V" target="_blank" rel="noopener" class="hover:text-jungleLight">@nuwa_travels</a></li>
+                <li>Based in Colombo, Sri Lanka</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 border-t border-slate-100 pt-4 text-xs text-slate-500">
+          Â© <span id="year-span"></span> TuskersEdge. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating contact widget (same IDs as index to reuse JS) -->
+    <button
+      id="contact-widget-button"
+      class="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-jungle px-4 py-3 text-xs font-semibold text-white shadow-lg shadow-emerald-900/40 hover:bg-jungleLight"
+    >
+      Plan your Sri Lanka trip
+    </button>
+
+    <div
+      id="contact-widget-panel"
+      class="fixed bottom-20 right-5 z-40 hidden w-80 max-w-[90vw] rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-slate-200"
+    >
+      <div class="mb-2 flex items-start justify-between gap-3">
+        <div>
+          <h3 class="font-heading text-sm text-jungle">
+            Tell us about your trip
+          </h3>
+          <p class="mt-1 text-xs text-slate-600">
+            Share a few details and a travel designer will reach out within 24 hours.
+          </p>
+        </div>
+        <button
+          id="contact-widget-close"
+          class="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-500 hover:bg-slate-200"
+        >
+          âœ•
+        </button>
+      </div>
+<form class="space-y-2 text-xs contact-form" data-source="gallery.html">
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Name</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="name" placeholder="Your full name"
+          />
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Email or WhatsApp</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="contact" placeholder="email@example.com or +94..."
+          />
+        </div>
+        <div class="flex gap-2">
+          <div class="w-1/2">
+            <label class="mb-1 block font-medium text-slate-700"
+              >Month</label
+            >
+            <input
+              type="text"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              name="month" placeholder="e.g. December"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="mb-1 block font-medium text-slate-700"
+              >Nights</label
+            >
+            <input
+              type="number"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              name="nights" placeholder="10"
+              min="1"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Interests</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="interests" placeholder="Wildlife, surfing, culture, food..."
+          />
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Anything else?</label
+          >
+          <textarea
+            rows="2"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="details" placeholder="Who youâ€™re travelling with, budget range, special dates..."
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="mt-1 w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+        >
+          Send enquiry
+        </button>
+      </form>
+    </div>
+
+    <script>
+      function escapeHtml(value) {
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function normalizeCategory(value) {
+        const v = String(value || '').trim().toLowerCase();
+        if (!v) return 'beaches';
+        if (v.includes('hill')) return 'hills';
+        if (v.includes('wild')) return 'wildlife';
+        if (v.includes('cult')) return 'culture';
+        if (v.includes('city')) return 'city';
+        return v;
+      }
+
+      function renderGalleryItems(items) {
+        const grid = document.getElementById('gallery-grid');
+        if (!grid) return;
+        if (!items.length) return;
+        grid.innerHTML = items
+          .map((item) => {
+            const category = normalizeCategory(item.category);
+            const label = item.label || 'Gallery image';
+            const src = item.src || '';
+            return `
+              <div
+                data-category="${escapeHtml(category)}"
+                class="gallery-item group relative h-52 overflow-hidden rounded-2xl bg-cover bg-center shadow-sm"
+                style="background-image: url('${escapeHtml(src)}')"
+              >
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+                <div class="absolute inset-x-3 bottom-3 text-xs text-white opacity-0 transition group-hover:opacity-100">
+                  <div class="font-semibold">${escapeHtml(label)}</div>
+                  <div class="text-[0.68rem] uppercase tracking-wide text-slate-200">
+                    ${escapeHtml(category)} Â· Sri Lanka
+                  </div>
+                </div>
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      fetch('data/content.json')
+        .then((res) => res.json())
+        .then((payload) => {
+          const items = Array.isArray(payload.gallery) ? payload.gallery : [];
+          renderGalleryItems(items);
+          if (typeof window.rebindGallery === 'function') {
+            window.rebindGallery();
+          } else {
+            window.__needsGalleryRebind = true;
+          }
+        })
+        .catch(() => {});
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+      const ys = document.getElementById('year-span');
+      if (ys) ys.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

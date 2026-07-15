@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TuskersEdge | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { jungle: '#064E3B', jungleLight: '#0F766E', sunset: '#F59E0B' },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 font-body text-slate-800">
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-slate-100 bg-white/80 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-jungle text-white font-heading text-xl">&#128024;</div>
+          <div>
+            <div class="font-heading text-xl tracking-wide text-jungle">TuskersEdge</div>
+            <div class="text-xs text-slate-500">Curated Sri Lanka journeys</div>
+          </div>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+          <a href="index.html" class="hover:text-jungleLight">Home</a>
+          <a href="tours.html" class="hover:text-jungleLight">Tours</a>
+          <a href="gallery.html" class="hover:text-jungleLight">Gallery</a>
+          <a href="blog.html" class="text-jungleLight">Blog</a>
+          <a href="about.html" class="hover:text-jungleLight">About</a>
+          <a href="feedback.html" class="hover:text-jungleLight">Feedback</a>
+          <a href="contact.html" class="hover:text-jungleLight">Contact</a>
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 md:hidden"
+        >
+          Menu
+        </button>
+      </div>
+      <nav id="mobile-menu" class="hidden border-t border-slate-100 bg-white px-4 pb-3 pt-2 text-sm md:hidden">
+        <a href="index.html" class="block py-1.5">Home</a>
+        <a href="tours.html" class="block py-1.5">Tours</a>
+        <a href="gallery.html" class="block py-1.5">Gallery</a>
+        <a href="blog.html" class="block py-1.5">Blog</a>
+        <a href="about.html" class="block py-1.5">About</a>
+        <a href="feedback.html" class="block py-1.5">Feedback</a>
+        <a href="contact.html" class="block py-1.5">Contact</a>
+      </nav>
+    </header>
+
+    <main class="pt-20 md:pt-24">
+      <section class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-sunset">TUSKERSEDGE JOURNAL</p>
+            <h1 class="mt-2 font-heading text-3xl text-jungle md:text-4xl">Stories from Sri Lanka</h1>
+            <p class="mt-2 max-w-2xl text-sm text-slate-600 md:text-base">
+              Itineraries, slow travel notes, and practical advice to help you plan a journey that feels like your own.
+            </p>
+          </div>
+          <div class="w-full max-w-xs space-y-2">
+            <input
+              id="blog-search"
+              type="search"
+              placeholder="Search posts"
+              class="w-full rounded-full border border-slate-200 px-3 py-2 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/40"
+            />
+            <p id="blog-search-meta" class="text-[0.7rem] text-slate-500"></p>
+          </div>
+        </div>
+
+        <div id="blog-grid" class="grid gap-6 md:grid-cols-3"></div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+        <div class="mt-6 border-t border-slate-100 pt-4 text-xs text-slate-500">
+          &copy; <span id="year-span"></span> TuskersEdge. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function escapeHtml(value) {
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function normalize(value) {
+        return String(value || '').toLowerCase();
+      }
+
+      let allPublishedPosts = [];
+
+      function renderBlogCards(items, query = '') {
+        const grid = document.getElementById('blog-grid');
+        const meta = document.getElementById('blog-search-meta');
+        if (!grid) return;
+
+        const q = normalize(query).trim();
+        const visible = !q
+          ? items
+          : items.filter((item) => {
+              const haystack = [
+                item.title,
+                item.category,
+                item.excerpt,
+                item.readTime,
+              ]
+                .map(normalize)
+                .join(' ');
+              return haystack.includes(q);
+            });
+
+        if (meta) {
+          const total = items.length;
+          const shown = visible.length;
+          meta.textContent = q ? `Showing ${shown} of ${total} posts` : `${total} published posts`;
+        }
+
+        if (!visible.length) {
+          grid.innerHTML =
+            '<p class="col-span-full rounded-2xl bg-white p-5 text-sm text-slate-600 ring-1 ring-slate-100">No posts matched your search.</p>';
+          return;
+        }
+
+        grid.innerHTML = visible
+          .map((item, index) => {
+            const url = item.url || `blog-post-${index + 1}.html`;
+            const image = item.image || `images/${((index % 12) + 1)}.jpeg`;
+            const readTime = item.readTime || '5 min read';
+            const excerpt = item.excerpt || 'Read the full article for travel notes and practical tips.';
+            return `
+              <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+                <a href="${escapeHtml(url)}" class="block h-full">
+                  <div class="h-40 bg-cover bg-center" style="background-image: url('${escapeHtml(image)}')"></div>
+                  <div class="p-5">
+                    <p class="text-[0.7rem] uppercase tracking-wide text-slate-500">${escapeHtml(item.category || 'General')} Â· ${escapeHtml(readTime)}</p>
+                    <h2 class="mt-1 font-heading text-lg text-jungle">${escapeHtml(item.title || 'Untitled')}</h2>
+                    <p class="mt-2 text-sm text-slate-600">${escapeHtml(excerpt)}</p>
+                    <p class="mt-3 text-[0.7rem] text-jungleLight">Read article</p>
+                  </div>
+                </a>
+              </article>
+            `;
+          })
+          .join('');
+      }
+
+      fetch('data/content.json')
+        .then((res) => res.json())
+        .then((payload) => {
+          allPublishedPosts = (payload.blog || []).filter((item) => item.published);
+          renderBlogCards(allPublishedPosts);
+        })
+        .catch(() => {
+          allPublishedPosts = [];
+          renderBlogCards(allPublishedPosts);
+        });
+
+      const searchInput = document.getElementById('blog-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          renderBlogCards(allPublishedPosts, searchInput.value);
+        });
+      }
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+      const ys = document.getElementById('year-span');
+      if (ys) ys.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
+

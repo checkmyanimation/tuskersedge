@@ -1,0 +1,399 @@
+{
+  "tours": [
+    {
+      "id": "tour-mmut3xfh",
+      "title": "eranda",
+      "duration": "8",
+      "type": "89",
+      "description": "fgdgfdgf",
+      "price": "600",
+      "featured": true,
+      "image": "imaes/2.jpeg"
+    },
+    {
+      "id": "tour-mmrxnev7",
+      "title": "dfdfd",
+      "duration": "7",
+      "type": "journey",
+      "description": "fdfdfd",
+      "price": "100",
+      "featured": true,
+      "image": "images/1.jpeg"
+    },
+    {
+      "id": "tour-1",
+      "title": "Cultural Triangle Escape",
+      "duration": "6 days",
+      "type": "Signature Ã¯Â¿Â½ 6 days",
+      "description": "Ancient capitals, cave temples, and misty Kandy Ã¯Â¿Â½ ideal if itÃ¯Â¿Â½s your first time on the island.",
+      "price": "890",
+      "featured": true,
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya_Fortress%2C_Sri_Lanka.jpg?width=1200"
+    },
+    {
+      "id": "tour-2",
+      "title": "Hill Country Tea Trails",
+      "duration": "7 days",
+      "type": "Nature Ã¯Â¿Â½ 7 days",
+      "description": "Scenic trains, cloud forests, and tea bungalows in Sri LankaÃ¯Â¿Â½s green heart.",
+      "price": "1150",
+      "featured": true,
+      "image": "images/2.jpeg"
+    },
+    {
+      "id": "tour-3",
+      "title": "Wild South & Ocean Blues",
+      "duration": "8 days",
+      "type": "Wildlife & sea Ã¯Â¿Â½ 8 days",
+      "description": "Responsible safaris in Yala and slow days between Mirissa and Galle.",
+      "price": "1280",
+      "featured": true,
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mirissa_Beach_Sri_Lanka.jpg?width=1200"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "gallery-mmuulpip",
+      "label": "tharindu",
+      "category": "travel",
+      "src": "images/new-construction-technology-innovations-construction-technology-advancements-mmuulp68.png"
+    },
+    {
+      "id": "gallery-mmuuatz7",
+      "label": "jaffna",
+      "category": "dkjfhkdjhkdsjfh",
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fPC_SBlFBXJ6wSlV1vGaR-0JDB7Jv4GjcQ&s"
+    },
+    {
+      "id": "gallery-mmuu0xdy",
+      "label": "tharindu",
+      "category": "travel",
+      "src": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0b/24/61/13.jpg"
+    },
+    {
+      "id": "gallery-mmuswbdl",
+      "label": "fhfhfjghfgjh",
+      "category": "jhjhhj",
+      "src": "images/3.jpeg"
+    },
+    {
+      "id": "g1",
+      "label": "Gallery image 1",
+      "category": "beaches",
+      "src": "images/1.jpeg"
+    },
+    {
+      "id": "g2",
+      "label": "Gallery image 2",
+      "category": "culture",
+      "src": "images/2.jpeg"
+    },
+    {
+      "id": "g3",
+      "label": "Gallery image 3",
+      "category": "wildlife",
+      "src": "images/3.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-4-mmutkx7u-3",
+      "label": "Gallery image 4",
+      "category": "hills",
+      "src": "images/4.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-5-mmutkx7u-4",
+      "label": "Gallery image 5",
+      "category": "city",
+      "src": "images/5.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-6-mmutkx7u-5",
+      "label": "Gallery image 6",
+      "category": "beaches",
+      "src": "images/6.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-7-mmutkx7u-6",
+      "label": "Gallery image 7",
+      "category": "culture",
+      "src": "images/7.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-8-mmutkx7u-7",
+      "label": "Gallery image 8",
+      "category": "wildlife",
+      "src": "images/8.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-9-mmutkx7u-8",
+      "label": "Gallery image 9",
+      "category": "hills",
+      "src": "images/9.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-10-mmutkx7u-9",
+      "label": "Gallery image 10",
+      "category": "city",
+      "src": "images/10.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-11-mmutkx7u-10",
+      "label": "Gallery image 11",
+      "category": "beaches",
+      "src": "images/11.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-12-mmutkx7u-11",
+      "label": "Gallery image 12",
+      "category": "culture",
+      "src": "images/12.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-13-mmutkx7u-12",
+      "label": "Gallery image 13",
+      "category": "wildlife",
+      "src": "images/13.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-14-mmutkx7u-13",
+      "label": "Gallery image 14",
+      "category": "hills",
+      "src": "images/14.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-15-mmutkx7u-14",
+      "label": "Gallery image 15",
+      "category": "city",
+      "src": "images/15.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-16-mmutkx7u-15",
+      "label": "Gallery image 16",
+      "category": "beaches",
+      "src": "images/16.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-17-mmutkx7u-16",
+      "label": "Gallery image 17",
+      "category": "culture",
+      "src": "images/17.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-18-mmutkx7u-17",
+      "label": "Gallery image 18",
+      "category": "wildlife",
+      "src": "images/18.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-19-mmutkx7u-18",
+      "label": "Gallery image 19",
+      "category": "hills",
+      "src": "images/19.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-20-mmutkx7u-19",
+      "label": "Gallery image 20",
+      "category": "city",
+      "src": "images/20.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-21-mmutkx7u-20",
+      "label": "Gallery image 21",
+      "category": "beaches",
+      "src": "images/21.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-22-mmutkx7u-21",
+      "label": "Gallery image 22",
+      "category": "culture",
+      "src": "images/22.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-23-mmutkx7u-22",
+      "label": "Gallery image 23",
+      "category": "wildlife",
+      "src": "images/23.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-24-mmutkx7u-23",
+      "label": "Gallery image 24",
+      "category": "hills",
+      "src": "images/24.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-25-mmutkx7u-24",
+      "label": "Gallery image 25",
+      "category": "city",
+      "src": "images/25.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-26-mmutkx7u-25",
+      "label": "Gallery image 26",
+      "category": "beaches",
+      "src": "images/26.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-27-mmutkx7u-26",
+      "label": "Gallery image 27",
+      "category": "culture",
+      "src": "images/27.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-28-mmutkx7u-27",
+      "label": "Gallery image 28",
+      "category": "wildlife",
+      "src": "images/28.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-29-mmutkx7u-28",
+      "label": "Gallery image 29",
+      "category": "hills",
+      "src": "images/29.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-30-mmutkx7u-29",
+      "label": "Gallery image 30",
+      "category": "city",
+      "src": "images/30.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-31-mmutkx7u-30",
+      "label": "Gallery image 31",
+      "category": "beaches",
+      "src": "images/31.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-32-mmutkx7u-31",
+      "label": "Gallery image 32",
+      "category": "culture",
+      "src": "images/32.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-33-mmutkx7u-32",
+      "label": "Gallery image 33",
+      "category": "wildlife",
+      "src": "images/33.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-34-mmutkx7u-33",
+      "label": "Gallery image 34",
+      "category": "hills",
+      "src": "images/34.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-35-mmutkx7u-34",
+      "label": "Gallery image 35",
+      "category": "city",
+      "src": "images/35.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-36-mmutkx7u-35",
+      "label": "Gallery image 36",
+      "category": "beaches",
+      "src": "images/36.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-37-mmutkx7u-36",
+      "label": "Gallery image 37",
+      "category": "culture",
+      "src": "images/37.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-38-mmutkx7u-37",
+      "label": "Gallery image 38",
+      "category": "wildlife",
+      "src": "images/38.jpeg"
+    },
+    {
+      "id": "gallery-import-gallery-image-39-mmutkx7u-38",
+      "label": "Gallery image 39",
+      "category": "hills",
+      "src": "images/39.jpeg"
+    }
+  ],
+  "blog": [
+    {
+      "id": "blog-mn1e3fhh",
+      "title": "Why Stay at TuskersEdge Homestay in Udawalawa",
+      "category": "Stay Guide",
+      "url": "tuskersedge.html",
+      "image": "images/18.jpeg",
+      "readTime": "4 min read",
+      "excerpt": "A practical, comfortable safari-base stay with quick park access and smooth onward transfers.",
+      "published": true,
+      "featured": true
+    },
+    {
+      "id": "blog-mmuusv1k",
+      "title": "udawalwa",
+      "category": "travel",
+      "url": "udawalwa.html",
+      "image": "https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/d0a7ce12-3b90-4aba-856e-d275ebf9a3c6/The_Common_Wanderer_-0508.jpg",
+      "readTime": "5 min",
+      "excerpt": "ghhjytfvvv",
+      "contentHtml": "<h2 data-section-id=\"1jdbacf\" data-start=\"151\" data-end=\"208\"><p>Ã°Å¸Å’Å  <strong>Pearl Bay Ã¢â‚¬â€œ Udawalawe Ã Â·â€žÃ Â·â€™ Ã Â·Æ’Ã Â·â€Ã Â¶Â±Ã Â·Å Ã Â¶Â¯Ã Â¶Â» Ã Â·â‚¬Ã Â·â€™Ã Â¶Â±Ã Â·ÂÃ Â¶Â¯Ã Â·ÂÃ Â¶Â­Ã Â·Å Ã Â¶Â¸Ã Â¶Å¡ Ã Â¶Â´Ã Â·ÂÃ Â¶Â»Ã Â·ÂÃ Â¶Â¯Ã Â·â€œÃ Â·Æ’Ã Â¶ÂºÃ Â¶Å¡Ã Â·Å </strong></p><p>Ã Â·ÂÃ Â·Å Ã¢â‚¬ÂÃ Â¶Â»Ã Â·â€œ Ã Â¶Â½Ã Â¶â€šÃ Â¶Å¡Ã Â·ÂÃ Â·â‚¬Ã Â·Å¡ Ã Â¶Â¯Ã Â¶Å¡Ã Â·â€Ã Â¶Â«Ã Â·â€ Ã Â¶Â´Ã Â·Å Ã¢â‚¬ÂÃ Â¶Â»Ã Â¶Â¯Ã Â·Å¡Ã Â·ÂÃ Â¶ÂºÃ Â·Å¡ Ã Â¶Â´Ã Â·â€™Ã Â·â€žÃ Â·â€™Ã Â¶Â§Ã Â·â€™ Pearl Bay Ã Â¶ÂºÃ Â¶Â±Ã Â·â€ Udawalawe Ã Â¶Â´Ã Â·Å Ã¢â‚¬ÂÃ Â¶Â»Ã Â¶Â¯Ã Â·Å¡Ã Â·ÂÃ Â¶ÂºÃ Â¶Â§ Ã Â¶Â´Ã Â·ÂÃ Â¶Â¸Ã Â·â€™Ã Â¶Â«Ã Â·â„¢Ã Â¶Â± Ã Â·Æ’Ã Â¶â€šÃ Â¶Â Ã Â·ÂÃ Â¶Â»Ã Â¶Å¡Ã Â¶ÂºÃ Â·â€™Ã Â¶Â±Ã Â·Å Ã Â¶Â§ Ã Â¶â€¦Ã Â¶Â¸Ã Â¶Â­Ã Â¶Å¡ Ã Â¶Â±Ã Â·Å“Ã Â·â‚¬Ã Â¶Â± Ã Â·â‚¬Ã Â·â€™Ã Â¶Â±Ã Â·ÂÃ Â¶Â¯Ã Â·ÂÃ Â¶Â­Ã Â·Å Ã Â¶Â¸Ã Â¶Å¡ Ã Â¶â€¦Ã Â¶Â­Ã Â·Å Ã Â¶Â¯Ã Â·ÂÃ Â¶Å¡Ã Â·â€œÃ Â¶Â¸Ã Â¶Å¡Ã Â·Å  Ã Â¶Â½Ã Â¶Â¶Ã Â·ÂÃ Â¶Â¯Ã Â·â„¢Ã Â¶Â± Ã Â¶â€¦Ã Â¶Â­Ã Â·â€™ Ã Â·â‚¬Ã Â·â€™Ã Â·ÂÃ Â·Å¡Ã Â·â€š Ã Â·Æ’Ã Â·Å Ã Â¶Â®Ã Â·ÂÃ Â¶Â±Ã Â¶ÂºÃ Â¶Å¡Ã Â·â€™. Ã Â·Æ’Ã Â·Å Ã Â·â‚¬Ã Â¶Â·Ã Â·ÂÃ Â·â‚¬Ã Â¶Â°Ã Â¶Â»Ã Â·Å Ã Â¶Â¸Ã Â¶Âº Ã Â·â€žÃ Â·Â Ã Â·â‚¬Ã Â·â€™Ã Â¶Â±Ã Â·ÂÃ Â¶Â¯Ã Â¶Âº Ã Â¶â€˜Ã Â¶Å¡Ã Â¶Â§ Ã Â¶â€˜Ã Â¶Å¡Ã Â·Å Ã Â·â‚¬Ã Â¶Â± Ã Â¶Â¸Ã Â·â„¢Ã Â¶Â¸ water park Ã Â¶â€˜Ã Â¶Å¡, family outing, friends gatherings Ã Â·Æ’Ã Â·â€ž Ã Â·â‚¬Ã Â·â€™Ã Â¶Â¯Ã Â·Å¡Ã Â·ÂÃ Â·â€œÃ Â¶Âº Ã Â·Æ’Ã Â¶â€šÃ Â¶Â Ã Â·ÂÃ Â¶Â»Ã Â¶Å¡Ã Â¶ÂºÃ Â¶Â±Ã Â·Å  Ã Â·Æ’Ã Â¶Â³Ã Â·â€žÃ Â·Â Ã Â¶â€°Ã Â¶Â­Ã Â·Â Ã Â·Æ’Ã Â·â€Ã Â¶Â¯Ã Â·â€Ã Â·Æ’Ã Â·â€Ã Â¶ÂºÃ Â·â€™.</p><p>Ã Â¶Â¸Ã Â·â„¢Ã Â·â€žÃ Â·â€™ Ã Â¶â€¡Ã Â¶Â­Ã Â·â€™ Ã Â·â‚¬Ã Â·â€™Ã Â·â‚¬Ã Â·â€™Ã Â¶Â° water slides, swimming pools Ã Â·Æ’Ã Â·â€ž wave pool Ã Â·â‚¬Ã Â·ÂÃ Â¶Â±Ã Â·â€™ Ã Â¶â€ Ã Â¶Å¡Ã Â¶Â»Ã Â·Å Ã Â·â€šÃ Â¶Â«Ã Â¶ÂºÃ Â¶Â±Ã Â·Å  Ã Â¶â€Ã Â¶Â¶Ã Â¶Â§ Ã Â¶Â­Ã Â¶Â»Ã Â·â€Ã Â¶Â« Ã Â·Æ’Ã Â¶Â­Ã Â·â€Ã Â¶Â§Ã Â¶Å¡Ã Â·Å  Ã Â·â€žÃ Â·Â refresh feeling Ã Â¶â€˜Ã Â¶Å¡Ã Â¶Å¡Ã Â·Å  Ã Â¶Â½Ã Â¶Â¶Ã Â·Â Ã Â¶Â¯Ã Â·â„¢Ã Â¶ÂºÃ Â·â€™. Ã Â¶Å¡Ã Â·â€Ã Â¶Â©Ã Â·Â Ã Â·â€¦Ã Â¶Â¸Ã Â·â€Ã Â¶Â±Ã Â·Å  Ã Â·Æ’Ã Â¶Â³Ã Â·â€žÃ Â·Â Ã Â·â‚¬Ã Â·â€™Ã Â·ÂÃ Â·Å¡Ã Â·â€šÃ Â¶ÂºÃ Â·â„¢Ã Â¶Â±Ã Â·Å  Ã Â·Æ’Ã Â·ÂÃ Â¶Â½Ã Â·Æ’Ã Â·â€Ã Â¶Â¸Ã Â·Å  Ã Â¶Å¡Ã Â·â€¦ play areas Ã Â¶Â¯ Ã Â¶Â¸Ã Â·â„¢Ã Â·â€žÃ Â·â€™ Ã Â¶Â­Ã Â·â€™Ã Â¶Â¶Ã Â·â€œÃ Â¶Â¸ Ã Â¶Â±Ã Â·â€™Ã Â·Æ’Ã Â·Â Ã Â¶Â´Ã Â·â‚¬Ã Â·â€Ã Â¶Â½Ã Â·Å  Ã Â·Æ’Ã Â¶Â¸Ã Â¶Å¸ Ã Â¶ÂºÃ Â·ÂÃ Â¶Â¸Ã Â¶Â§Ã Â¶Â¯ Ã Â¶â€°Ã Â¶Â­Ã Â·Â Ã Â·â€žÃ Â·Å“Ã Â¶Â³ Ã Â¶Â­Ã Â·Å¡Ã Â¶Â»Ã Â·â€œÃ Â¶Â¸Ã Â¶Å¡Ã Â·Å  Ã Â·â‚¬Ã Â·Å¡.</p><p>Pearl Bay Ã Â·â€žÃ Â·â€™ Ã Â¶Â­Ã Â·â‚¬Ã Â¶Â­Ã Â·Å  Ã Â·â‚¬Ã Â·â€™Ã Â·ÂÃ Â·Å¡Ã Â·â€šÃ Â¶Â­Ã Â·Å Ã Â·â‚¬Ã Â¶ÂºÃ Â¶Å¡Ã Â·Å  Ã Â·â‚¬Ã Â¶Â±Ã Â·Å Ã Â¶Â±Ã Â·Å¡ Ã Â¶â€˜Ã Â·â€žÃ Â·â€™ Ã Â¶Â±Ã Â·â€™Ã Â¶Â¯Ã Â·â€žÃ Â·Æ’Ã Â·Å  Ã Â·Æ’Ã Â·â€ž Ã Â¶â€ Ã Â¶Â»Ã Â¶Å¡Ã Â·Å Ã Â·â€šÃ Â·â€™Ã Â¶Â­ Ã Â¶Â´Ã Â¶Â»Ã Â·â€™Ã Â·Æ’Ã Â¶Â»Ã Â¶ÂºÃ Â¶ÂºÃ Â·â€™. Ã Â·Æ’Ã Â·â€Ã Â¶Â±Ã Â·Å Ã Â¶Â¯Ã Â¶Â» Udawalawe Ã Â·â‚¬Ã Â¶Â§Ã Â¶Â´Ã Â·â€™Ã Â¶Â§Ã Â·ÂÃ Â·â‚¬ Ã Â¶â€¦Ã Â¶Â­Ã Â¶Â»Ã Â·Å¡ Ã Â¶Â´Ã Â·â€™Ã Â·â€žÃ Â·â€™Ã Â¶Â§Ã Â·Â Ã Â¶â€¡Ã Â¶Â­Ã Â·â€™ Ã Â¶Â¸Ã Â·â„¢Ã Â¶Â¸ Ã Â·Æ’Ã Â·Å Ã Â¶Â®Ã Â·ÂÃ Â¶Â±Ã Â¶Âº, Ã Â¶â€¹Ã Â¶Â«Ã Â·â€Ã Â·Æ’Ã Â·â€Ã Â¶Â¸Ã Â·Å  Ã Â¶Å¡Ã Â·ÂÃ Â¶Â½Ã Â¶Å“Ã Â·â€Ã Â¶Â«Ã Â¶ÂºÃ Â·â„¢Ã Â¶Â±Ã Â·Å  Ã Â¶Â¸Ã Â·â€™Ã Â¶Â¯Ã Â·â€œ Ã Â·Æ’Ã Â·â€Ã Â·â‚¬Ã Â¶Â´Ã Â·â€žÃ Â·Æ’Ã Â·â€ Ã Â¶Â¯Ã Â·â‚¬Ã Â·Æ’Ã Â¶Å¡Ã Â·Å  Ã Â¶Å“Ã Â¶Â­ Ã Â¶Å¡Ã Â·â€™Ã Â¶Â»Ã Â·â€œÃ Â¶Â¸Ã Â¶Â§ Ã Â¶â€¹Ã Â¶Â´Ã Â¶Å¡Ã Â·ÂÃ Â¶Â»Ã Â·â€œ Ã Â·â‚¬Ã Â·Å¡.</p><p>Ã Â¶Å Ã Â¶Â§ Ã Â¶â€¦Ã Â¶Â¸Ã Â¶Â­Ã Â¶Â»Ã Â·â‚¬, Udawalawe safari Ã Â¶â€˜Ã Â¶Å¡Ã Â¶Å¡Ã Â·Å  Ã Â·Æ’Ã Â¶Â¸Ã Â¶Å¸ Pearl Bay Ã Â¶â€˜Ã Â¶Å¡Ã Â¶Â­Ã Â·â€ Ã Â¶Å¡Ã Â¶Â» Ã Â¶Å“Ã Â¶Â±Ã Â·Å Ã Â¶Â±Ã Â·Â Ã Â·â‚¬Ã Â·â€™Ã Â¶Â§, Ã Â¶â€Ã Â¶Â¶Ã Â¶Â§ Ã Â·Æ’Ã Â·Å Ã Â·â‚¬Ã Â¶Â·Ã Â·ÂÃ Â·â‚¬Ã Â·â€™Ã Â¶Å¡ Ã Â¶Â¢Ã Â·â€œÃ Â·â‚¬ Ã Â·â‚¬Ã Â·â€™Ã Â·â‚¬Ã Â·â€™Ã Â¶Â°Ã Â¶Â­Ã Â·Å Ã Â·â‚¬Ã Â¶Âº Ã Â·Æ’Ã Â·â€ž Ã Â·â‚¬Ã Â·â€™Ã Â¶Â±Ã Â·ÂÃ Â¶Â¯Ã Â·ÂÃ Â¶Â­Ã Â·Å Ã Â¶Â¸Ã Â¶Å¡ Ã Â¶â€¦Ã Â¶Â­Ã Â·Å Ã Â¶Â¯Ã Â·ÂÃ Â¶Å¡Ã Â·â€œÃ Â¶Â¸Ã Â·Å  Ã Â¶Â¯Ã Â·â„¢Ã Â¶Å¡Ã Â¶Â¸ Ã Â¶â€˜Ã Â¶Å¡ Ã Â¶Â¯Ã Â·â‚¬Ã Â·Æ’Ã Â¶Å¡ Ã Â¶Â·Ã Â·â€Ã Â¶Å¡Ã Â·Å Ã Â¶Â­Ã Â·â€™ Ã Â·â‚¬Ã Â·â€™Ã Â¶Â³Ã Â·â€™Ã Â¶Âº Ã Â·â€žÃ Â·ÂÃ Â¶Å¡.</p><p>Ã Â¶â€¦Ã Â·â‚¬Ã Â·Æ’Ã Â¶Â±Ã Â·Å  Ã Â·â‚¬Ã Â·ÂÃ Â¶ÂºÃ Â·â„¢Ã Â¶Â±Ã Â·Å , Ã Â¶â€Ã Â¶Â¶ Udawalawe Ã Â·Æ’Ã Â¶â€šÃ Â¶Â Ã Â·ÂÃ Â¶Â»Ã Â¶ÂºÃ Â¶Å¡Ã Â·Å  Ã Â·Æ’Ã Â·ÂÃ Â¶Â½Ã Â·Æ’Ã Â·â€Ã Â¶Â¸Ã Â·Å  Ã Â¶Å¡Ã Â¶Â»Ã Â¶Â±Ã Â·â‚¬Ã Â·Â Ã Â¶Â±Ã Â¶Â¸Ã Â·Å , Pearl Bay Ã Â¶â€Ã Â¶Â¶Ã Â¶Å“Ã Â·Å¡ itinerary Ã Â¶â€˜Ã Â¶Å¡Ã Â¶Â§ Ã Â¶â€˜Ã Â¶Å¡Ã Â·Å  Ã Â¶Å¡Ã Â¶Â»Ã Â¶Å“Ã Â¶Â­ Ã Â¶ÂºÃ Â·â€Ã Â¶Â­Ã Â·â€Ã Â¶Â¸ Ã Â·Æ’Ã Â·Å Ã Â¶Â®Ã Â·ÂÃ Â¶Â±Ã Â¶ÂºÃ Â¶Å¡Ã Â·â€™ Ã¢â‚¬â€œ Ã Â·Æ’Ã Â¶Â­Ã Â·â€Ã Â¶Â§, Ã Â·â‚¬Ã Â·â€™Ã Â·â‚¬Ã Â·Å¡Ã Â¶Å¡Ã Â¶Âº Ã Â·Æ’Ã Â·â€ž Ã Â¶â€¦Ã Â¶Â¸Ã Â¶Â­Ã Â¶Å¡ Ã Â¶Â±Ã Â·Å“Ã Â·â‚¬Ã Â¶Â± Ã Â¶Â¸Ã Â¶Â­Ã Â¶Å¡Ã Â¶ÂºÃ Â¶Â±Ã Â·Å  Ã Â·Æ’Ã Â¶Â³Ã Â·â€žÃ Â·Â.</p></h2>",
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "blog-mmutqcmn",
+      "title": "piumi",
+      "category": "travel",
+      "url": "piumi.html",
+      "image": "images/1.jpeg",
+      "readTime": "5 min",
+      "excerpt": "ghhjytfvvv",
+      "contentHtml": "piumi",
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "blog-mmut4ntf",
+      "title": "4546463lkdsflksdflkdsl",
+      "category": "eranda",
+      "url": "https://preview.blazethemes.com/newsmatic-ten/",
+      "image": "imaes/2.jpeg",
+      "readTime": "7",
+      "excerpt": "d;lfds;lfds;lf,ds;l,",
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "blog-mmuswp5b",
+      "title": "dfjksdkfjsdkfjhsdkjhfkjdsh",
+      "category": "dkjfhkdjhkdsjfh",
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "b-mmrxp0fm",
+      "title": "hello",
+      "category": "Travel tips",
+      "published": true,
+      "featured": true
+    },
+    {
+      "id": "b1",
+      "title": "10 things to taste in Colombo",
+      "category": "Travel tips",
+      "published": true,
+      "featured": true
+    },
+    {
+      "id": "b2",
+      "title": "A slow 12-day Sri Lanka loop",
+      "category": "Itinerary",
+      "published": true,
+      "featured": false
+    }
+  ],
+  "districtGuides": {},
+  "tiktokVideos": [
+    {
+      "id": "video-mn1i09vj",
+      "title": "Ambuluwawa Sri Lanka",
+      "url": "https://www.tiktok.com/@nuwa_travels/video/7454053223180012808",
+      "videoId": "7454053223180012808"
+    }
+  ]
+}

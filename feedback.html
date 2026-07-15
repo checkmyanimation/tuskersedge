@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TuskersEdge | Tourist Feedback & Experiences</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { jungle: '#064E3B', jungleLight: '#0F766E', sunset: '#F59E0B' },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 font-body text-slate-800">
+    <header class="fixed inset-x-0 top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-jungle text-white">&#128024;</div>
+          <div>
+            <div class="font-heading text-xl tracking-wide text-jungle">TuskersEdge</div>
+            <div class="text-xs text-slate-500">Curated Sri Lanka journeys</div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+          <a href="index.html" class="hover:text-jungleLight">Home</a>
+          <a href="tours.html" class="hover:text-jungleLight">Tours</a>
+          <a href="gallery.html" class="hover:text-jungleLight">Gallery</a>
+          <a href="blog.html" class="hover:text-jungleLight">Blog</a>
+          <a href="about.html" class="hover:text-jungleLight">About</a>
+          <a href="feedback.html" class="text-jungleLight">Feedback</a>
+          <a href="contact.html" class="hover:text-jungleLight">Contact</a>
+        </nav>
+
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 md:hidden"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-slate-100 bg-white px-4 pb-3 pt-2 text-sm md:hidden"
+      >
+        <a href="index.html" class="block py-1.5">Home</a>
+        <a href="tours.html" class="block py-1.5">Tours</a>
+        <a href="gallery.html" class="block py-1.5">Gallery</a>
+        <a href="blog.html" class="block py-1.5">Blog</a>
+        <a href="about.html" class="block py-1.5">About</a>
+        <a href="feedback.html" class="block py-1.5">Feedback</a>
+        <a href="contact.html" class="block py-1.5">Contact</a>
+      </nav>
+    </header>
+
+    <main class="pt-20 md:pt-24">
+      <section class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-sunset">Guest Voices</p>
+        <h1 class="mt-2 font-heading text-3xl text-jungle md:text-4xl">
+          Tourist feedback and real travel experiences
+        </h1>
+        <p class="mt-3 max-w-3xl text-sm text-slate-600 md:text-base">
+          A mix of guest stories, safari memories, and short video moments from trips around Sri Lanka.
+        </p>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <article class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <p class="text-xs font-semibold text-jungle">Emma & Ryan ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â UK</p>
+            <p class="mt-2 text-sm text-slate-600">
+              "Udawalawa safari timing was perfect. Transfers were smooth and the hotel stop made the route stress-free."
+            </p>
+          </article>
+          <article class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <p class="text-xs font-semibold text-jungle">Lena ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Germany</p>
+            <p class="mt-2 text-sm text-slate-600">
+              "Loved the mix of culture and nature. Communication was fast and every day felt well planned."
+            </p>
+          </article>
+          <article class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <p class="text-xs font-semibold text-jungle">Noah Family ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Australia</p>
+            <p class="mt-2 text-sm text-slate-600">
+              "Kids enjoyed the wildlife moments. We liked that the pace could be adjusted on the go."
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+          <h2 class="font-heading text-2xl text-jungle md:text-3xl">Video experiences</h2>
+          <p id="tiktok-feed-meta" class="mt-2 text-sm text-slate-600">
+            Loading videos from admin...
+          </p>
+
+          <div id="tiktok-feed-grid" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="text-sm font-semibold text-jungle">Managed from Admin Panel</p>
+            <p class="mt-2 text-sm text-slate-600">
+              Add or remove TikTok video links in Admin -> Videos tab. This page renders only manual entries.
+            </p>
+            <a
+              href="https://www.tiktok.com/@nuwa_travels"
+              target="_blank"
+              rel="noopener"
+              class="mt-4 inline-flex rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+            >
+              Open @nuwa_travels
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:justify-between">
+          <div>
+            <div class="font-heading text-lg text-jungle">TuskersEdge</div>
+            <p class="mt-1 text-xs text-slate-600 md:text-sm">
+              Sri Lanka-based travel designers crafting slow, soulful journeys across the island.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-8 text-xs text-slate-600 md:text-sm">
+            <div>
+              <div class="font-semibold text-slate-800">Explore</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="tours.html" class="hover:text-jungleLight">Tours</a></li>
+                <li><a href="gallery.html" class="hover:text-jungleLight">Gallery</a></li>
+                <li><a href="blog.html" class="hover:text-jungleLight">Blog</a></li>
+                <li><a href="feedback.html" class="hover:text-jungleLight">Feedback</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Company</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="about.html" class="hover:text-jungleLight">About</a></li>
+                <li><a href="faq.html" class="hover:text-jungleLight">FAQ</a></li>
+                <li><a href="contact.html" class="hover:text-jungleLight">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Contact</div>
+              <ul class="mt-2 space-y-1">
+                <li>WhatsApp: <a href="https://wa.me/94729258104" target="_blank" rel="noopener" class="hover:text-jungleLight">+94729258104</a></li>
+                <li>Email: <a href="mailto:tuskersedgesafari@gmail.com" class="hover:text-jungleLight">tuskersedgesafari@gmail.com</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@nuwa_travels?_r=1&_t=ZS-94iDBHmU33V" target="_blank" rel="noopener" class="hover:text-jungleLight">@nuwa_travels</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 border-t border-slate-100 pt-4 text-xs text-slate-500">
+          Ãƒâ€šÃ‚Â© <span id="year-span"></span> TuskersEdge. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      const ys = document.getElementById('year-span');
+      if (ys) ys.textContent = new Date().getFullYear();
+
+      (async () => {
+        const grid = document.getElementById('tiktok-feed-grid');
+        const meta = document.getElementById('tiktok-feed-meta');
+        if (!grid || !meta) return;
+
+        const fallback = ['7454053223180012808'];
+        const renderCards = (ids) => {
+          grid.innerHTML = ids
+            .map(
+              (id) => `
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/${id}"
+                  class="h-[640px] w-full rounded-2xl border border-slate-200 bg-white"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  title="TikTok video ${id}"
+                ></iframe>
+              `
+            )
+            .join('');
+        };
+
+        try {
+          const res = await fetch('data/content.json', { cache: 'no-store' });
+          const data = await res.json();
+          const manualIds = Array.isArray(data?.tiktokVideos)
+            ? data.tiktokVideos
+                .map((item) => String(item?.videoId || '').trim() || (String(item?.url || '').match(/\/video\/(\d+)/)?.[1] || ''))
+                .filter(Boolean)
+            : [];
+
+          const uniqueIds = Array.from(new Set(manualIds)).slice(0, 9);
+          if (uniqueIds.length) {
+            renderCards(uniqueIds);
+            meta.textContent = `Showing ${uniqueIds.length} video${uniqueIds.length > 1 ? 's' : ''} from admin.`;
+            return;
+          }
+
+          renderCards(fallback);
+          meta.textContent = 'No videos configured yet. Showing featured video.';
+        } catch (error) {
+          renderCards(fallback);
+          meta.textContent = 'Video data unavailable. Showing featured video.';
+        }
+      })();
+    </script>
+  </body>
+</html>
+

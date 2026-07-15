@@ -1,0 +1,49 @@
+{
+  "messages": [
+    {
+      "id": "mmrxqrtn",
+      "name": "fdf",
+      "email": "+94712073682",
+      "phone": "",
+      "month": "5",
+      "nights": "34",
+      "travelers": "",
+      "budget": "",
+      "interests": "travel",
+      "details": "no",
+      "source": "about.html",
+      "status": "read",
+      "createdAt": "2026-03-15T15:54:44.699Z"
+    },
+    {
+      "id": "mmutn0yr",
+      "name": "piumi",
+      "email": "piumilakmali27@gmail.com",
+      "phone": "",
+      "month": "april",
+      "nights": "3",
+      "travelers": "",
+      "budget": "",
+      "interests": "wildlife",
+      "details": "erthjuyiiuo",
+      "source": "index.html",
+      "status": "new",
+      "createdAt": "2026-03-17T16:23:09.987Z"
+    },
+    {
+      "id": "mmutnjy0",
+      "name": "piumi",
+      "email": "piumilakmali27@gmail.com",
+      "phone": "",
+      "month": "april",
+      "nights": "3",
+      "travelers": "",
+      "budget": "",
+      "interests": "wildlife",
+      "details": "erthjuyiiuo",
+      "source": "index.html",
+      "status": "new",
+      "createdAt": "2026-03-17T16:23:34.584Z"
+    }
+  ]
+}

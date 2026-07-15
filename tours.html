@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TuskersEdge | Tours & Itineraries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { jungle: '#064E3B', jungleLight: '#0F766E', sunset: '#F59E0B' },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 font-body text-slate-800">
+    <!-- Navbar -->
+    <header class="fixed inset-x-0 top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-jungle text-[1.05rem] text-white"
+          >&#128024;</div>
+          <div>
+            <div class="font-heading text-xl tracking-wide text-jungle">
+              TuskersEdge
+            </div>
+            <div class="text-xs text-slate-500">
+              Curated Sri Lanka journeys
+            </div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+          <a href="index.html" class="hover:text-jungleLight">Home</a>
+          <a href="tours.html" class="text-jungleLight">Tours</a>
+          <a href="gallery.html" class="hover:text-jungleLight">Gallery</a>
+          <a href="blog.html" class="hover:text-jungleLight">Blog</a>
+          <a href="about.html" class="hover:text-jungleLight">About</a>
+          <a href="feedback.html" class="hover:text-jungleLight">Feedback</a>
+          <a href="contact.html" class="hover:text-jungleLight">Contact</a>
+        </nav>
+
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 md:hidden"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-slate-100 bg-white px-4 pb-3 pt-2 text-sm md:hidden"
+      >
+        <a href="index.html" class="block py-1.5">Home</a>
+        <a href="tours.html" class="block py-1.5">Tours</a>
+        <a href="gallery.html" class="block py-1.5">Gallery</a>
+        <a href="blog.html" class="block py-1.5">Blog</a>
+        <a href="about.html" class="block py-1.5">About</a>
+        <a href="feedback.html" class="block py-1.5">Feedback</a>
+        <a href="contact.html" class="block py-1.5">Contact</a>
+      </nav>
+    </header>
+
+    <main class="pt-20 md:pt-24">
+      <section class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <div class="mb-8 max-w-3xl">
+          <p class="text-xs uppercase tracking-[0.25em] text-sunset">
+            TOURS & ITINERARIES
+          </p>
+          <h1 class="mt-2 font-heading text-3xl text-jungle md:text-4xl">
+            Journeys tailored to how you like to travel
+          </h1>
+          <p class="mt-2 text-sm text-slate-600 md:text-base">
+            Think of these as starting points. We adjust pace, hotels, and experiences
+            based on your interests, budget, and who youâ€™re travelling with.
+          </p>
+        </div>
+
+        <div class="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 md:p-6">
+          <div class="relative mx-auto w-full max-w-[260px] md:max-w-[320px]">
+            <div
+              id="sri-lanka-map-root"
+              class="h-auto w-full"
+              aria-label="Sri Lanka map"
+              role="img"
+            ></div>
+
+            <div
+              class="pointer-events-none absolute left-[27%] top-[69%] z-20 -translate-x-1/2 -translate-y-1/2"
+              aria-label="Start point Colombo Airport"
+            >
+              <div class="relative h-4 w-4 rounded-full bg-rose-600 ring-2 ring-white shadow"></div>
+            </div>
+
+            <div
+              class="pointer-events-none absolute left-[11%] top-[74%] z-10 -translate-x-1/2 -translate-y-1/2"
+              aria-label="Colombo Airport icon"
+              title="Colombo Airport"
+            >
+              <svg viewBox="0 0 24 24" class="h-6 w-6 text-rose-600 drop-shadow" fill="currentColor" aria-hidden="true">
+                <path d="M22 16.5 13.6 13V6.8l2.2-1.6V3.8L12 5.2 8.2 3.8v1.4l2.2 1.6V13L2 16.5V18l8.4-1.5v3.4l-2.1 1.6v1.3l3.7-1.1 3.7 1.1v-1.3l-2.1-1.6v-3.4L22 18z"/>
+              </svg>
+            </div>
+
+            <a
+              href="https://www.booking.com/hotel/lk/tuskersedge-homestay.html?aid=1263239;label=PShare-Pulse-cCBzek@1773237657&chal_t=1774161038584&force_referer=https%3A%2F%2Ftuskers-edge.com%2F"
+              target="_blank"
+              rel="noopener"
+              class="absolute left-[47%] top-[82%] z-20 -translate-x-1/2 -translate-y-1/2"
+              aria-label="Open Udawalawa hotel on Booking.com"
+              title="Open Udawalawa hotel on Booking.com"
+            >
+              <span class="absolute inset-0 h-10 w-10 -translate-x-3 -translate-y-3 animate-ping rounded-full bg-fuchsia-400/60"></span>
+              <span class="relative flex h-10 w-10 items-center justify-center rounded-full bg-fuchsia-600 text-white shadow-lg ring-4 ring-white/85">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M4 10h16c1.1 0 2 .9 2 2v8h-2v-2H4v2H2v-8c0-1.1.9-2 2-2zm1 6h5v-4H5v4zm11-9a3 3 0 0 1 3 3v1h-2V10a1 1 0 1 0-2 0v1h-2V10a3 3 0 0 1 3-3zM8 7a3 3 0 0 1 3 3v1H9V10a1 1 0 1 0-2 0v1H5V10a3 3 0 0 1 3-3z"/>
+                </svg>
+              </span>
+              <span class="absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-semibold text-fuchsia-700 shadow">
+                Udawalawa
+              </span>
+            </a>
+
+            <button
+              data-map-location="cultural-triangle"
+              class="absolute left-[48%] top-[28%] h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sunset shadow ring-2 ring-white"
+              title="Cultural Triangle"
+              aria-label="Cultural Triangle"
+            ></button>
+            <button
+              data-map-location="hill-country"
+              class="absolute left-[52%] top-[48%] h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-jungle shadow ring-2 ring-white"
+              title="Hill Country"
+              aria-label="Hill Country"
+            ></button>
+            <button
+              data-map-location="south-coast"
+              class="absolute left-[50%] top-[74%] h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-600 shadow ring-2 ring-white"
+              title="South Coast"
+              aria-label="South Coast"
+            ></button>
+            <button
+              data-map-location="wildlife"
+              class="absolute left-[60%] top-[66%] h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500 shadow ring-2 ring-white"
+              title="Wildlife Parks"
+              aria-label="Wildlife Parks"
+            ></button>
+          </div>
+
+          <div class="mt-5">
+            <p class="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-sunset">
+              PICK A REGION
+            </p>
+            <h2 class="mt-2 font-heading text-xl text-jungle md:text-2xl">
+              Explore journeys by region
+            </h2>
+            <p class="mt-2 text-sm text-slate-600">
+              Tap a district or location point on the map to filter journeys.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <button
+                data-location-filter="all"
+                class="rounded-full bg-jungle px-3 py-1.5 font-semibold text-white"
+              >
+                All regions
+              </button>
+              <button
+                data-location-filter="cultural-triangle"
+                class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700 hover:bg-slate-200"
+              >
+                Cultural Triangle
+              </button>
+              <button
+                data-location-filter="hill-country"
+                class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700 hover:bg-slate-200"
+              >
+                Hill Country
+              </button>
+              <button
+                data-location-filter="south-coast"
+                class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700 hover:bg-slate-200"
+              >
+                South Coast
+              </button>
+              <button
+                data-location-filter="wildlife"
+                class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700 hover:bg-slate-200"
+              >
+                Wildlife Parks
+              </button>
+            </div>
+            <p id="map-selected-area" class="mt-3 text-xs text-slate-500">
+              Selected area: All
+            </p>
+          </div>
+        </div>
+
+        <section
+          id="district-explorer"
+          class="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 md:p-6"
+        >
+          <div class="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p class="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-sunset">
+                DISTRICT EXPLORER
+              </p>
+              <h3 class="mt-2 flex items-center gap-2 font-heading text-xl text-jungle md:text-2xl">
+                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-jungle text-sm text-white">ðŸ˜</span>
+                Sri Lanka districts
+              </h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Click a district on the map to bring its card to the top.
+              </p>
+            </div>
+          </div>
+          <div
+            id="district-cards-grid"
+            class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          ></div>
+        </section>
+
+        <div class="mb-6 flex flex-wrap gap-2 text-xs">
+          <span class="rounded-full bg-jungle px-3 py-1.5 text-white">
+            All journeys
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">
+            First-time in Sri Lanka
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">
+            Families
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">
+            Honeymoons
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">
+            Wildlife & nature
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">
+            Short breaks
+          </span>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- Tour card 1 -->
+          <article
+            data-tour-location="cultural-triangle"
+            class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+          >
+            <div
+              class="h-44 bg-cover bg-center"
+              style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya_Fortress%2C_Sri_Lanka.jpg?width=1200')"
+            ></div>
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Signature Â· First-time visitors</span>
+                <span>6 days</span>
+              </div>
+              <h2 class="font-heading text-xl text-jungle">
+                Cultural Triangle Escape
+              </h2>
+              <p class="text-sm text-slate-600">
+                Dawn climbs up Sigiriya, saffron-robed processions, cave temples, and
+                an easy glide into misty Kandy.
+              </p>
+              <ul class="text-[0.75rem] text-slate-600 space-y-1">
+                <li>â€¢ Anuradhapura, Sigiriya, Dambulla & Kandy</li>
+                <li>â€¢ Boutique guesthouses with character</li>
+                <li>â€¢ Private driver-guide throughout</li>
+              </ul>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-jungleLight">
+                  From US$ 890 per person
+                </span>
+                <button
+                  onclick="document.getElementById('contact-widget-button').click()"
+                  class="rounded-full border border-jungle px-3 py-1.5 text-[0.7rem] font-semibold text-jungle hover:bg-jungle hover:text-white"
+                >
+                  Request this journey
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour card 2 -->
+          <article
+            data-tour-location="hill-country"
+            class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+          >
+            <div
+              class="h-44 bg-cover bg-center"
+              style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Tea_plantation_in_Sri_Lanka.JPG?width=1200')"
+            ></div>
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Nature Â· Cooler weather</span>
+                <span>7 days</span>
+              </div>
+              <h2 class="font-heading text-xl text-jungle">
+                Hill Country Tea Trails
+              </h2>
+              <p class="text-sm text-slate-600">
+                Tea estates, waterfalls, and the famous blue train journey between
+                the islandâ€™s most scenic hills.
+              </p>
+              <ul class="text-[0.75rem] text-slate-600 space-y-1">
+                <li>â€¢ Nuwara Eliya, Ella & Horton Plains</li>
+                <li>â€¢ Tea bungalows & cosy stays</li>
+                <li>â€¢ Gentle hikes & scenic trains</li>
+              </ul>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-jungleLight">
+                  From US$ 1,150 per person
+                </span>
+                <button
+                  onclick="document.getElementById('contact-widget-button').click()"
+                  class="rounded-full border border-jungle px-3 py-1.5 text-[0.7rem] font-semibold text-jungle hover:bg-jungle hover:text-white"
+                >
+                  Request this journey
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour card 3 -->
+          <article
+            data-tour-location="south-coast wildlife"
+            class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+          >
+            <div
+              class="h-44 bg-cover bg-center"
+              style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Leopard_at_Yala_National_Park.jpg?width=1600')"
+            ></div>
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Wildlife & beaches</span>
+                <span>8 days</span>
+              </div>
+              <h2 class="font-heading text-xl text-jungle">
+                Wild South & Ocean Blues
+              </h2>
+              <p class="text-sm text-slate-600">
+                Leopards, elephants, and warm Indian Ocean sunsets on Sri Lankaâ€™s south
+                coast, at an easy pace.
+              </p>
+              <ul class="text-[0.75rem] text-slate-600 space-y-1">
+                <li>â€¢ Yala, Mirissa, and Galle</li>
+                <li>â€¢ Responsible safari partners only</li>
+                <li>â€¢ Time for surfing, snorkelling, or just doing nothing</li>
+              </ul>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-jungleLight">
+                  From US$ 1,280 per person
+                </span>
+                <button
+                  onclick="document.getElementById('contact-widget-button').click()"
+                  class="rounded-full border border-jungle px-3 py-1.5 text-[0.7rem] font-semibold text-jungle hover:bg-jungle hover:text-white"
+                >
+                  Request this journey
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour card 4 -->
+          <article
+            data-tour-location="hill-country south-coast"
+            class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+          >
+            <div
+              class="h-44 bg-cover bg-center"
+              style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Nine_Arch_Bridge_in_Ella.jpg?width=1600')"
+            ></div>
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Honeymoon Â· Slower pace</span>
+                <span>10 days</span>
+              </div>
+              <h2 class="font-heading text-xl text-jungle">
+                Honeymoon under palm skies
+              </h2>
+              <p class="text-sm text-slate-600">
+                Boutique hideaways, private dinners, and just enough light adventure
+                to keep your days memorable.
+              </p>
+              <ul class="text-[0.75rem] text-slate-600 space-y-1">
+                <li>â€¢ Hill country, tea, and beaches</li>
+                <li>â€¢ Carefully chosen romantic stays</li>
+                <li>â€¢ Flexible days with optional add-ons</li>
+              </ul>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-jungleLight">
+                  From US$ 1,650 per person
+                </span>
+                <button
+                  onclick="document.getElementById('contact-widget-button').click()"
+                  class="rounded-full border border-jungle px-3 py-1.5 text-[0.7rem] font-semibold text-jungle hover:bg-jungle hover:text-white"
+                >
+                  Request this journey
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 md:p-6">
+          <h2 class="font-heading text-lg text-jungle">
+            Want something completely custom?
+          </h2>
+          <p class="mt-2 text-sm text-slate-600 md:text-base">
+            Tell us your dates, who youâ€™re travelling with, and a rough budget. Weâ€™ll
+            sketch a tailored route within 48 hours and iterate with you until it feels
+            just right.
+          </p>
+          <button
+            onclick="document.getElementById('contact-widget-button').click()"
+            class="mt-4 rounded-full bg-jungle px-5 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+          >
+            Start a custom trip conversation
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-100 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:justify-between">
+          <div>
+            <div class="font-heading text-lg text-jungle">TuskersEdge</div>
+            <p class="mt-1 text-xs text-slate-600 md:text-sm">
+              Sri Lanka-based travel designers crafting slow, soulful journeys
+              across the island.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-8 text-xs text-slate-600 md:text-sm">
+            <div>
+              <div class="font-semibold text-slate-800">Explore</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="tours.html" class="hover:text-jungleLight">Tours</a></li>
+                <li><a href="gallery.html" class="hover:text-jungleLight">Gallery</a></li>
+                <li><a href="blog.html" class="hover:text-jungleLight">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Company</div>
+              <ul class="mt-2 space-y-1">
+                <li><a href="about.html" class="hover:text-jungleLight">About</a></li>
+                <li><a href="faq.html" class="hover:text-jungleLight">FAQ</a></li>
+                <li><a href="feedback.html" class="hover:text-jungleLight">Feedback</a></li>
+                <li><a href="contact.html" class="hover:text-jungleLight">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-800">Contact</div>
+              <ul class="mt-2 space-y-1">
+                <li>WhatsApp: <a href="https://wa.me/94729258104" target="_blank" rel="noopener" class="hover:text-jungleLight">+94729258104</a></li>
+                <li>Email: <a href="mailto:tuskersedgesafari@gmail.com" class="hover:text-jungleLight">tuskersedgesafari@gmail.com</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@nuwa_travels?_r=1&_t=ZS-94iDBHmU33V" target="_blank" rel="noopener" class="hover:text-jungleLight">@nuwa_travels</a></li>
+                <li>Based in Colombo, Sri Lanka</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 border-t border-slate-100 pt-4 text-xs text-slate-500">
+          Â© <span id="year-span"></span> TuskersEdge. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating contact widget -->
+    <button
+      id="contact-widget-button"
+      class="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-jungle px-4 py-3 text-xs font-semibold text-white shadow-lg shadow-emerald-900/40 hover:bg-jungleLight"
+    >
+      Plan your Sri Lanka trip
+    </button>
+
+    <div
+      id="contact-widget-panel"
+      class="fixed bottom-20 right-5 z-40 hidden w-80 max-w-[90vw] rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-slate-200"
+    >
+      <div class="mb-2 flex items-start justify-between gap-3">
+        <div>
+          <h3 class="font-heading text-sm text-jungle">
+            Tell us about your trip
+          </h3>
+          <p class="mt-1 text-xs text-slate-600">
+            Share a few details and a travel designer will reach out within 24 hours.
+          </p>
+        </div>
+        <button
+          id="contact-widget-close"
+          class="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-500 hover:bg-slate-200"
+        >
+          âœ•
+        </button>
+      </div>
+<form class="space-y-2 text-xs contact-form" data-source="tours.html">
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Name</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="name" placeholder="Your full name"
+          />
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Email or WhatsApp</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="contact" placeholder="email@example.com or +94..."
+          />
+        </div>
+        <div class="flex gap-2">
+          <div class="w-1/2">
+            <label class="mb-1 block font-medium text-slate-700"
+              >Month</label
+            >
+            <input
+              type="text"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              name="month" placeholder="e.g. December"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="mb-1 block font-medium text-slate-700"
+              >Nights</label
+            >
+            <input
+              type="number"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              name="nights" placeholder="10"
+              min="1"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Interests</label
+          >
+          <input
+            type="text"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="interests" placeholder="Wildlife, surfing, culture, food..."
+          />
+        </div>
+        <div>
+          <label class="mb-1 block font-medium text-slate-700"
+            >Anything else?</label
+          >
+          <textarea
+            rows="2"
+            class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+            name="details" placeholder="Who youâ€™re travelling with, budget range, special dates..."
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="mt-1 w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+        >
+          Send enquiry
+        </button>
+      </form>
+    </div>
+
+    <script src="js/districts.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const ys = document.getElementById('year-span');
+      if (ys) ys.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

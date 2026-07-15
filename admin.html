@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TuskersEdge | Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { jungle: '#064E3B', jungleLight: '#0F766E', sunset: '#F59E0B' },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 font-body text-slate-800">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <div class="flex items-center gap-2">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-jungle text-white font-heading text-lg"
+          >&#128024;</div>
+          <div>
+            <div class="text-sm font-semibold text-jungle">
+              TuskersEdge Admin
+            </div>
+            <div class="text-[0.7rem] text-slate-500">
+              Internal control panel
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            id="admin-logout"
+            class="hidden rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
+          >
+            Logout
+          </button>
+          <a
+            href="index.html"
+            class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
+          >
+            View website
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div
+      id="admin-login"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 px-4"
+    >
+      <div class="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200">
+        <h2 class="font-heading text-xl text-jungle">Admin login</h2>
+        <p class="mt-1 text-xs text-slate-500">Use your admin credentials to continue.</p>
+        <form id="admin-login-form" class="mt-4 space-y-3 text-xs">
+          <div>
+            <label class="mb-1 block font-medium text-slate-700">Username</label>
+            <input
+              type="text"
+              name="username"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-2 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              placeholder="admin"
+              required
+            />
+          </div>
+          <div>
+            <label class="mb-1 block font-medium text-slate-700">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="w-full rounded-lg border border-slate-200 px-2.5 py-2 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              placeholder="********"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+          >
+            Sign in
+          </button>
+          <p id="admin-login-error" class="hidden text-[0.7rem] text-rose-600">Login failed.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-4 py-6 md:px-6 md:py-8">
+      <section class="mb-6 grid gap-4 md:grid-cols-4">
+        <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+          <p class="text-xs text-slate-500">Total tours</p>
+          <p id="summary-tours" class="mt-2 text-2xl font-semibold text-jungle">0</p>
+          <p class="mt-1 text-[0.7rem] text-emerald-600">
+            <span id="summary-featured">0</span> featured on homepage
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+          <p class="text-xs text-slate-500">Blog posts</p>
+          <p id="summary-blog" class="mt-2 text-2xl font-semibold text-jungle">0</p>
+          <p class="mt-1 text-[0.7rem] text-sky-600">
+            <span id="summary-blog-featured">0</span> highlighted on homepage
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+          <p class="text-xs text-slate-500">Gallery images</p>
+          <p id="summary-gallery" class="mt-2 text-2xl font-semibold text-jungle">0</p>
+          <p class="mt-1 text-[0.7rem] text-amber-600">Updated from admin</p>
+        </div>
+        <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+          <p class="text-xs text-slate-500">New enquiries</p>
+          <p id="summary-enquiries" class="mt-2 text-2xl font-semibold text-jungle">0</p>
+          <p class="mt-1 text-[0.7rem] text-rose-600">From widget / contact form</p>
+        </div>
+      </section>
+
+      <section class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+          <button
+            data-tab-button="tours"
+            class="rounded-full bg-jungle px-3 py-1.5 font-semibold text-white"
+          >
+            Tours
+          </button>
+          <button
+            data-tab-button="gallery"
+            class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700"
+          >
+            Gallery
+          </button>
+          <button
+            data-tab-button="blog"
+            class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700"
+          >
+            Blog
+          </button>
+          <button
+            data-tab-button="districts"
+            class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700"
+          >
+            District Guides
+          </button>
+          <button
+            data-tab-button="videos"
+            class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700"
+          >
+            Videos
+          </button>
+          <button
+            data-tab-button="enquiries"
+            class="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-700"
+          >
+            Enquiries
+          </button>
+        </div>
+
+        <div data-tab-panel="tours" class="space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">Manage tours</h2>
+            <button
+              id="add-tour-btn"
+              class="rounded-full bg-jungle px-3 py-1.5 text-xs font-semibold text-white hover:bg-jungleLight"
+            >
+              + Add tour
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead
+                class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500"
+              >
+                <tr>
+                  <th class="px-2 py-2">Title</th>
+                  <th class="px-2 py-2">Duration</th>
+                  <th class="px-2 py-2">Type</th>
+                  <th class="px-2 py-2">Featured</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tours-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+
+          <form
+            id="tour-form"
+            class="mt-4 grid gap-3 border-t border-slate-100 pt-4 text-xs md:grid-cols-4"
+          >
+            <div class="md:col-span-4 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p id="tour-form-title" class="text-xs font-semibold text-slate-700">Add a new tour</p>
+                <p class="text-[0.7rem] text-slate-500">Fill the fields below to save the tour card.</p>
+              </div>
+              <button
+                type="button"
+                id="tour-form-clear"
+                class="rounded-full border border-slate-200 px-3 py-1.5 text-[0.7rem] font-semibold text-slate-600 hover:bg-slate-100"
+              >
+                Clear
+              </button>
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Tour title</label>
+              <input
+                type="text"
+                name="title"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="e.g. Wild South & Ocean Blues"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Duration</label>
+              <input
+                type="text"
+                name="duration"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="8 days"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Starting price (US$)</label>
+              <input
+                type="number"
+                name="price"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="1280"
+                min="0"
+                required
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Short description</label>
+              <input
+                type="text"
+                name="description"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="One sentence that appears on the tour card"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Type label</label>
+              <input
+                type="text"
+                name="type"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Nature - 7 days"
+                required
+              />
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Image URL</label>
+              <input
+                type="text"
+                name="image"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="images/2.jpeg"
+                required
+              />
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" name="featured" id="tour-featured" class="h-4 w-4" />
+              <label for="tour-featured" class="text-[0.7rem] text-slate-600">
+                Feature on homepage
+              </label>
+            </div>
+            <div class="flex items-end">
+              <button
+                type="submit"
+                id="tour-form-submit"
+                class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                Save tour
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div data-tab-panel="gallery" class="hidden space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">Manage gallery images</h2>
+            <div class="flex items-center gap-2">
+              <button
+                id="sync-gallery-btn"
+                type="button"
+                class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+              >
+                Sync from gallery page
+              </button>
+              <button
+                id="add-gallery-btn"
+                class="rounded-full bg-jungle px-3 py-1.5 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                + Add image
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead
+                class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500"
+              >
+                <tr>
+                  <th class="px-2 py-2">Label</th>
+                  <th class="px-2 py-2">Category</th>
+                  <th class="px-2 py-2">File name / URL</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="gallery-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+
+          <form
+            id="gallery-form"
+            class="mt-4 grid gap-3 border-t border-slate-100 pt-4 text-xs md:grid-cols-3"
+          >
+            <div class="md:col-span-3 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p id="gallery-form-title" class="text-xs font-semibold text-slate-700">Add a new image</p>
+                <p class="text-[0.7rem] text-slate-500">Images show in the gallery page and homepage blocks.</p>
+              </div>
+              <button
+                type="button"
+                id="gallery-form-clear"
+                class="rounded-full border border-slate-200 px-3 py-1.5 text-[0.7rem] font-semibold text-slate-600 hover:bg-slate-100"
+              >
+                Clear
+              </button>
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Label</label>
+              <input
+                type="text"
+                name="label"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="e.g. Sunset at Mirissa"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Category</label>
+              <input
+                type="text"
+                name="category"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="beaches, culture, wildlife"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Image URL or path</label>
+              <input
+                type="text"
+                name="src"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="images/1.jpeg"
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Or upload image</label>
+              <input
+                type="file"
+                id="gallery-file"
+                accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-[0.72rem] outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <button
+                type="submit"
+                id="gallery-form-submit"
+                class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                Save image
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div data-tab-panel="blog" class="hidden space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">Manage blog posts</h2>
+            <button
+              id="add-blog-btn"
+              class="rounded-full bg-jungle px-3 py-1.5 text-xs font-semibold text-white hover:bg-jungleLight"
+            >
+              + New post
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead
+                class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500"
+              >
+                <tr>
+                  <th class="px-2 py-2">Title</th>
+                  <th class="px-2 py-2">Category</th>
+                  <th class="px-2 py-2">Published</th>
+                  <th class="px-2 py-2">Homepage</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="blog-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+
+          <form
+            id="blog-form"
+            class="mt-4 grid gap-3 border-t border-slate-100 pt-4 text-xs md:grid-cols-3"
+          >
+            <div class="md:col-span-3 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p id="blog-form-title" class="text-xs font-semibold text-slate-700">Add a new post</p>
+                <p class="text-[0.7rem] text-slate-500">Only published posts appear on the blog page.</p>
+              </div>
+              <button
+                type="button"
+                id="blog-form-clear"
+                class="rounded-full border border-slate-200 px-3 py-1.5 text-[0.7rem] font-semibold text-slate-600 hover:bg-slate-100"
+              >
+                Clear
+              </button>
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Title</label>
+              <input
+                type="text"
+                name="title"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="e.g. 10 things to taste in Colombo"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Category</label>
+              <input
+                type="text"
+                name="category"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Travel tips"
+                required
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Post page link</label>
+              <input
+                type="text"
+                name="url"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="blog-post-7.html"
+              />
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Image URL</label>
+              <input
+                type="text"
+                name="image"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="images/12.jpeg"
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Read time</label>
+              <input
+                type="text"
+                name="readTime"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="6 min read"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Excerpt</label>
+              <input
+                type="text"
+                name="excerpt"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Short line shown on the blog card"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Content (paste from ChatGPT)</label>
+              <div
+                id="blog-content-editor"
+                class="min-h-[180px] w-full rounded-lg border border-slate-200 px-2.5 py-2 outline-none focus-within:border-jungle focus-within:ring-1 focus-within:ring-jungle/50"
+                contenteditable="true"
+              ></div>
+              <p class="mt-1 text-[0.7rem] text-slate-500">
+                You can paste formatted text and images directly here.
+              </p>
+              <textarea name="contentHtml" id="blog-content-html" class="hidden"></textarea>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" name="published" id="blog-published" class="h-4 w-4" />
+              <label for="blog-published" class="text-[0.7rem] text-slate-600">Published</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" name="featured" id="blog-featured" class="h-4 w-4" />
+              <label for="blog-featured" class="text-[0.7rem] text-slate-600">Feature on homepage</label>
+            </div>
+            <div class="md:col-span-3">
+              <button
+                type="submit"
+                id="blog-form-submit"
+                class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                Save post
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div data-tab-panel="districts" class="hidden space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">District guide articles</h2>
+            <button
+              id="district-form-clear"
+              type="button"
+              class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+            >
+              Clear form
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead
+                class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500"
+              >
+                <tr>
+                  <th class="px-2 py-2">District</th>
+                  <th class="px-2 py-2">Summary</th>
+                  <th class="px-2 py-2">Custom article</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="districts-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+
+          <form
+            id="district-form"
+            class="mt-4 grid gap-3 border-t border-slate-100 pt-4 text-xs md:grid-cols-3"
+          >
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">District</label>
+              <select
+                name="district"
+                id="district-select"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                required
+              ></select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Display name</label>
+              <input
+                type="text"
+                name="name"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="e.g. Badulla"
+                required
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Short summary</label>
+              <input
+                type="text"
+                name="summary"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="One line intro for the top of district page"
+              />
+            </div>
+            <div>
+              <label class="mb-1 block font-medium text-slate-700">Climate</label>
+              <input
+                type="text"
+                name="climate"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Cool / warm / dry"
+              />
+            </div>
+            <div class="md:col-span-2">
+              <label class="mb-1 block font-medium text-slate-700">Weather window</label>
+              <input
+                type="text"
+                name="weather"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Best months and notes"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Best for</label>
+              <input
+                type="text"
+                name="focus"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Wildlife, culture, beaches, hiking"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Highlights (one line per item)</label>
+              <textarea
+                name="highlights"
+                rows="4"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="Yala National Park&#10;Elephant Transit Home&#10;Scenic village roads"
+              ></textarea>
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Hero image URL</label>
+              <input
+                type="text"
+                name="image"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="images/28.jpeg"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Full article content</label>
+              <div
+                id="district-content-editor"
+                class="min-h-[220px] w-full rounded-lg border border-slate-200 px-2.5 py-2 outline-none focus-within:border-jungle focus-within:ring-1 focus-within:ring-jungle/50"
+                contenteditable="true"
+              ></div>
+              <p class="mt-1 text-[0.7rem] text-slate-500">
+                Optional. If empty, district page auto-generates article text from fields above.
+              </p>
+              <textarea name="articleHtml" id="district-content-html" class="hidden"></textarea>
+            </div>
+            <div class="md:col-span-3 grid gap-2 md:grid-cols-2">
+              <button
+                type="submit"
+                id="district-form-submit"
+                class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                Save district article
+              </button>
+              <button
+                type="button"
+                id="district-reset-default"
+                class="w-full rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+              >
+                Restore selected district default
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div data-tab-panel="videos" class="hidden space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">TikTok video links</h2>
+            <button
+              id="video-form-clear"
+              type="button"
+              class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+            >
+              Clear
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th class="px-2 py-2">Title</th>
+                  <th class="px-2 py-2">Video URL</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="videos-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+
+          <form id="video-form" class="mt-4 grid gap-3 border-t border-slate-100 pt-4 text-xs md:grid-cols-3">
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">Video title</label>
+              <input
+                type="text"
+                name="title"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="e.g. Ambuluwawa experience"
+              />
+            </div>
+            <div class="md:col-span-3">
+              <label class="mb-1 block font-medium text-slate-700">TikTok link</label>
+              <input
+                type="url"
+                name="url"
+                class="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 outline-none focus:border-jungle focus:ring-1 focus:ring-jungle/50"
+                placeholder="https://www.tiktok.com/@nuwa_travels/video/7454053223180012808"
+                required
+              />
+            </div>
+            <div class="md:col-span-3">
+              <button
+                type="submit"
+                id="video-form-submit"
+                class="w-full rounded-full bg-jungle px-4 py-2 text-xs font-semibold text-white hover:bg-jungleLight"
+              >
+                Save video
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div data-tab-panel="enquiries" class="hidden space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-heading text-lg text-jungle">Latest enquiries</h2>
+            <button
+              id="mark-all-read"
+              class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-200"
+            >
+              Mark all as read
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-xs">
+              <thead
+                class="border-b border-slate-200 text-[0.7rem] uppercase tracking-wide text-slate-500"
+              >
+                <tr>
+                  <th class="px-2 py-2">Name</th>
+                  <th class="px-2 py-2">Contact</th>
+                  <th class="px-2 py-2">Month - Nights</th>
+                  <th class="px-2 py-2">Interests</th>
+                  <th class="px-2 py-2">Status</th>
+                  <th class="px-2 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="enquiries-tbody" class="divide-y divide-slate-100 text-[0.75rem]"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/districts.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+      const tabButtons = document.querySelectorAll('[data-tab-button]');
+      const tabPanels = document.querySelectorAll('[data-tab-panel]');
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab-button');
+
+          tabButtons.forEach((b) => b.classList.remove('bg-jungle', 'text-white'));
+          btn.classList.add('bg-jungle', 'text-white');
+
+          tabPanels.forEach((panel) => {
+            panel.classList.add('hidden');
+            if (panel.getAttribute('data-tab-panel') === target) {
+              panel.classList.remove('hidden');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
